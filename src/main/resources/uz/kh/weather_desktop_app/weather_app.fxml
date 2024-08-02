@@ -1,16 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="uz.kh.weather_desktop_app.WeatherController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
-
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<?import java.net.URL?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="uz.kh.weather_desktop_app.WeatherController" styleClass="background">
+    <stylesheets>
+        <URL value="@weather-style.css" />
+    </stylesheets>
+    <children>
+        <ImageView fitWidth="400" fitHeight="600" preserveRatio="false">
+            <image>
+                <Image url="@icons/background_image.jpeg" />
+            </image>
+        </ImageView>
+        <VBox alignment="CENTER" spacing="10.0" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <Label text="New York City" styleClass="location-label"/>
+            <Label text="32°" styleClass="temperature-label"/>
+            <HBox alignment="CENTER" spacing="10.0">
+                <ImageView fx:id="weatherIcon" fitHeight="80.0" fitWidth="80.0">
+                    <image>
+                        <Image url="@icons/clear.png"/>
+                    </image>
+                </ImageView>
+                <VBox alignment="CENTER_LEFT" spacing="5.0">
+                    <HBox alignment="CENTER" spacing="5.0">
+                        <Label text="30%" styleClass="info-label"/>
+                        <Label text="Precipitation" styleClass="info-description"/>
+                    </HBox>
+                    <HBox alignment="CENTER" spacing="5.0">
+                        <Label text="20%" styleClass="info-label"/>
+                        <Label text="Humidity" styleClass="info-description"/>
+                    </HBox>
+                    <HBox alignment="CENTER" spacing="5.0">
+                        <Label text="9 km/h" styleClass="info-label"/>
+                        <Label text="Wind Speed" styleClass="info-description"/>
+                    </HBox>
+                </VBox>
+            </HBox>
+            <HBox alignment="CENTER" spacing="15.0">
+                <VBox alignment="CENTER" spacing="5.0">
+                    <Label text="MON" styleClass="day-label"/>
+                    <ImageView fx:id="monIcon" fitHeight="40.0" fitWidth="40.0">
+                        <image>
+                            <Image url="@icons/cloudy.png"/>
+                        </image>
+                    </ImageView>
+                    <Label text="23°" styleClass="temp-label"/>
+                </VBox>
+                <VBox alignment="CENTER" spacing="5.0">
+                    <Label text="TUE" styleClass="day-label"/>
+                    <ImageView fx:id="tueIcon" fitHeight="40.0" fitWidth="40.0">
+                        <image>
+                            <Image url="@icons/location.png"/>
+                        </image>
+                    </ImageView>
+                    <Label text="21°" styleClass="temp-label"/>
+                </VBox>
+                <VBox alignment="CENTER" spacing="5.0">
+                    <Label text="WED" styleClass="day-label"/>
+                    <ImageView fx:id="wedIcon" fitHeight="40.0" fitWidth="40.0">
+                        <image>
+                            <Image url="@icons/rain.png"/>
+                        </image>
+                    </ImageView>
+                    <Label text="24°" styleClass="temp-label"/>
+                </VBox>
+                <VBox alignment="CENTER" spacing="5.0">
+                    <Label text="THU" styleClass="day-label"/>
+                    <ImageView fx:id="thuIcon" fitHeight="40.0" fitWidth="40.0">
+                        <image>
+                            <Image url="@icons/snow.png"/>
+                        </image>
+                    </ImageView>
+                    <Label text="27°" styleClass="temp-label"/>
+                </VBox>
+            </HBox>
+        </VBox>
+    </children>
+</AnchorPane>
