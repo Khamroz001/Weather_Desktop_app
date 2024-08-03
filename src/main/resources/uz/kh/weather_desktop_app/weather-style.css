@@ -1,3 +1,28 @@
+.input-style {
+    -fx-border-color: rgba(90, 105, 222, 0.93);
+    -fx-border-radius: 2px;
+    -fx-prompt-text-fill: rgba(185, 185, 185, 0.79);
+    -fx-focus-color: rgba(250, 2, 2, 0); /* Убираем стандартное выделение при фокусе */
+    -fx-faint-focus-color: rgba(255, 0, 0, 0);
+}
+
+.button-style {
+    -fx-border-color: rgba(0, 255, 216, 0.25);
+    -fx-background-color: rgba(0, 102, 255, 0.56);
+    -fx-text-fill: #000000;
+    -fx-cursor: hand;
+    -fx-transition: ease-out 0.5s;
+}
+
+.button-style:hover {
+    -fx-text-fill: white;
+    -fx-background-color: tansparent;
+}
+
+.button-style:pressed {
+    -fx-scale-x: 0.9;
+    -fx-scale-y: 0.9;
+}
 
 .location-label {
     -fx-font-size: 24px;
