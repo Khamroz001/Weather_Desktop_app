@@ -29,7 +29,7 @@
                     <Font name="System Bold Italic" size="37.0" />
                 </font>
                 <fill>
-                    <LinearGradient endX="0.18764845605700708" endY="0.8859857482185274" startX="0.4038004750593824" startY="0.7268408551068883">
+                    <LinearGradient endX="0.18764845605700708" endY="0.496437054631829" startX="0.1947743467933491" startY="0.25178147268408546">
                         <stops>
                             <Stop>
                                 <color>
@@ -38,7 +38,7 @@
                             </Stop>
                             <Stop offset="1.0">
                                 <color>
-                                    <Color red="1.0" green="0.5566666722297668" blue="0.23999999463558197" opacity="0.5200764536857605" />
+                                    <Color red="0.23999999463558197" green="0.7861367464065552" blue="1.0" opacity="0.5199999809265137" />
                                 </color>
                             </Stop>
                         </stops>
@@ -47,56 +47,59 @@
             </Text>
             <AnchorPane prefHeight="543.0" prefWidth="400.0">
                 <children>
-                    <TextField fx:id="search" layoutX="14.0" layoutY="10.0" promptText="Search" styleClass="input-style" />
+                    <TextField fx:id="search" layoutX="14.0" layoutY="10.0" promptText="Search" styleClass="input-style">
+                  <font>
+                     <Font name="System Bold" size="13.0" />
+                  </font></TextField>
                     <Button fx:id="searchButton" alignment="CENTER" contentDisplay="TOP" ellipsisString="" graphicTextGap="2.0" layoutX="175.0" layoutY="10.0" minHeight="10.0" minWidth="10.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" opacity="0.9" prefHeight="27.0" prefWidth="53.0" styleClass="button-style" text="GO" textAlignment="CENTER">
                   <font>
                      <Font name="Arial Black" size="13.0" />
                   </font></Button>
-                    <Text fx:id="degree" fill="WHITE" layoutX="53.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="32°">
+                    <Text fx:id="degree" fill="WHITE" layoutX="35.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="32 C°">
                         <font>
-                            <Font name="Bangla MN Bold" size="70.0" />
+                            <Font name="Bangla MN Bold" size="59.0" />
                         </font>
                     </Text>
-                    <Text fx:id="city" fill="WHITE" layoutX="52.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New York city">
+                    <Text fx:id="city" fill="WHITE" layoutX="56.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New York city">
                         <font>
                             <Font size="20.0" />
                         </font>
                     </Text>
-                    <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="30.0" layoutY="72.0">
+                    <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="32.0" layoutY="78.0">
                         <image>
                             <Image url="@icons/map-spot.png" />
                         </image>
                     </ImageView>
-                    <ImageView fx:id="mainPhoto" fitHeight="180.0" fitWidth="185.0" layoutX="210.0" layoutY="46.0">
+                    <ImageView fx:id="mainPhoto" fitHeight="180.0" fitWidth="185.0" layoutX="213.0" layoutY="52.0">
                         <image>
                             <Image url="@icons/cloudy.png" />
                         </image>
                     </ImageView>
-                    <Text fill="#cfc8c8" layoutX="7.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Precipitation" />
-                    <Text fill="#d0c9c9" layoutX="106.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Humidity" />
+                    <Text fill="#cfc8c8" layoutX="18.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Feels like" />
+                    <Text fill="#d0c9c9" layoutX="106.0" layoutY="294.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Humidity" />
                     <Text fill="#d0c9c9" layoutX="183.0" layoutY="294.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wind Speed" />
-                    <ImageView fx:id="prePhoto" fitHeight="40.0" fitWidth="40.0" layoutX="22.0" layoutY="216.0">
+                    <ImageView fx:id="prePhoto" fitHeight="40.0" fitWidth="40.0" layoutX="20.0" layoutY="215.0">
                         <image>
-                            <Image url="@icons/pre-icon.png" />
+                            <Image url="@icons/feels-like.png" />
                         </image>
                     </ImageView>
-                    <ImageView fx:id="humPhoto" fitHeight="40.0" fitWidth="40.0" layoutX="108.0" layoutY="218.0">
+                    <ImageView fx:id="humPhoto" fitHeight="40.0" fitWidth="40.0" layoutX="108.0" layoutY="216.0">
                         <image>
                             <Image url="@icons/humidity-icon.png" />
                         </image>
                     </ImageView>
-                    <ImageView fx:id="windPhoto" fitHeight="40.0" fitWidth="40.0" layoutX="193.0" layoutY="216.0">
+                    <ImageView fx:id="windPhoto" fitHeight="40.0" fitWidth="40.0" layoutX="193.0" layoutY="215.0">
                         <image>
                             <Image url="@icons/windy-icon.png" />
                         </image>
                     </ImageView>
-                    <Text fx:id="precipitation" fill="WHITE" layoutX="28.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="15%">
+                    <Text fx:id="feels_like" fill="WHITE" layoutX="28.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="15%">
                         <font>
                             <Font size="14.0" />
                         </font>
                     </Text>
                     <Text fx:id="humidity" fill="WHITE" layoutX="119.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="11%" />
-                    <Text fx:id="windSpeed" fill="WHITE" layoutX="195.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5km/h" />
+                    <Text fx:id="windSpeed" fill="WHITE" layoutX="195.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5km/h" />
                     <Text fill="#2858d171" layoutX="3.0" layoutY="539.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Created by Khamroz">
                         <font>
                             <Font name="Avenir Black Oblique" size="9.0" />
