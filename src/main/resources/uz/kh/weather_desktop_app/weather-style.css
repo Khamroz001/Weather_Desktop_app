@@ -16,7 +16,7 @@
 
 .button-style:hover {
     -fx-text-fill: white;
-    -fx-background-color: tansparent;
+    -fx-background-color: transparent; /* Исправлено */
 }
 
 .button-style:pressed {

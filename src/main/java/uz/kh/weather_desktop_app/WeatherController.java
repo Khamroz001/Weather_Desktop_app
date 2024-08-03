@@ -1,14 +1,19 @@
 package uz.kh.weather_desktop_app;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.DropShadow;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import org.json.JSONObject;
 
 public class WeatherController {
 
@@ -37,7 +42,7 @@ public class WeatherController {
     private ImageView prePhoto;
 
     @FXML
-    private Text precipitation;
+    private Text feels_like;
 
     @FXML
     private TextField search;
@@ -50,9 +55,34 @@ public class WeatherController {
 
     @FXML
     private Text windSpeed;
+    private String apiKey = "b9a1329be0239bc6bd9777781de0e241";
+
 
     @FXML
     void initialize() {
+        shadowEffect();
+
+        searchButton.setOnAction(actionEvent -> {
+            WeatherClient client = new WeatherClient(apiKey);
+            try {
+                JSONObject weatherData = client.getWeatherData(search.getText());
+                city.setText(search.getText());
+                int temperature = (int) weatherData.getJSONObject("main").getDouble("temp");
+                degree.setText(temperature + "°C");
+                int hum = weatherData.getJSONObject("main").getInt("humidity");
+                humidity.setText(hum + "%");
+                double wind = weatherData.getJSONObject("wind").getDouble("speed");
+                windSpeed.setText(wind + "km/h");
+                System.out.println(weatherData);
+                int feels = (int) weatherData.getJSONObject("main").getDouble("feels_like");
+                feels_like.setText(feels + "°");
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+    void shadowEffect (){
         DropShadow outerShadow = new DropShadow();
         outerShadow.setColor(Color.color(0.2, 0.2, 0.36, 0.25));
         outerShadow.setOffsetX(0);
@@ -67,20 +97,6 @@ public class WeatherController {
         innerShadow.setSpread(-0.18);
         innerShadow.setInput(outerShadow);
         search.setEffect(innerShadow);
-
-
-        assert city != null : "fx:id=\"city\" was not injected: check your FXML file 'draft-weather.fxml'.";
-        assert degree != null : "fx:id=\"degree\" was not injected: check your FXML file 'draft-weather.fxml'.";
-        assert humPhoto != null : "fx:id=\"humPhoto\" was not injected: check your FXML file 'draft-weather.fxml'.";
-        assert humidity != null : "fx:id=\"humidity\" was not injected: check your FXML file 'draft-weather.fxml'.";
-        assert mainPhoto != null : "fx:id=\"mainPhoto\" was not injected: check your FXML file 'draft-weather.fxml'.";
-        assert prePhoto != null : "fx:id=\"prePhoto\" was not injected: check your FXML file 'draft-weather.fxml'.";
-        assert precipitation != null : "fx:id=\"precipitation\" was not injected: check your FXML file 'draft-weather.fxml'.";
-        assert search != null : "fx:id=\"search\" was not injected: check your FXML file 'draft-weather.fxml'.";
-        assert searchButton != null : "fx:id=\"searchButton\" was not injected: check your FXML file 'draft-weather.fxml'.";
-        assert windPhoto != null : "fx:id=\"windPhoto\" was not injected: check your FXML file 'draft-weather.fxml'.";
-        assert windSpeed != null : "fx:id=\"windSpeed\" was not injected: check your FXML file 'draft-weather.fxml'.";
-
     }
 
 }
