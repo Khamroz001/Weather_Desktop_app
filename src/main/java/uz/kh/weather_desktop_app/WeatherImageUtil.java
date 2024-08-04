@@ -37,7 +37,7 @@ public class WeatherImageUtil {
                     imageView.setImage(scatteredCloudsImage);
             case "overcast clouds" ->
                     imageView.setImage(overcastCloudsImage);
-            case "shower rain", "light rain" ->
+            case "shower rain", "light rain", "moderate rain", "drizzle" ->
                     imageView.setImage(showerRainImage);
             case "rain" ->
                     imageView.setImage(rainImage);
@@ -45,7 +45,7 @@ public class WeatherImageUtil {
                     imageView.setImage(thunderstormImage);
             case "snow" ->
                     imageView.setImage(snowImage);
-            case "mist" ->
+            case "mist", "haze" ->
                     imageView.setImage(mistImage);
             default ->
                     imageView.setImage(noImage);
