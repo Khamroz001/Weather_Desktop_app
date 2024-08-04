@@ -55,12 +55,15 @@ public class WeatherController {
 
     @FXML
     private Text windSpeed;
+
+    private WeatherImageUtil weatherDisplay;
     private String apiKey = "b9a1329be0239bc6bd9777781de0e241";
 
 
     @FXML
     void initialize() {
         shadowEffect();
+        weatherDisplay = new WeatherImageUtil(mainPhoto);
 
         searchButton.setOnAction(actionEvent -> {
             WeatherClient client = new WeatherClient(apiKey);
@@ -73,9 +76,11 @@ public class WeatherController {
                 humidity.setText(hum + "%");
                 double wind = weatherData.getJSONObject("wind").getDouble("speed");
                 windSpeed.setText(wind + "km/h");
-                System.out.println(weatherData);
                 int feels = (int) weatherData.getJSONObject("main").getDouble("feels_like");
                 feels_like.setText(feels + "°");
+
+                String weatherDesc = weatherData.getJSONArray("weather").getJSONObject(0).getString("description");
+                weatherDisplay.updateWeather(weatherDesc);
 
             } catch (IOException e) {
                 e.printStackTrace();
